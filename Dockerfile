@@ -1,4 +1,4 @@
-FROM ubuntu
+FROM ubuntu:latest
 MAINTAINER Aaron Daniel aaron@ninjawarriors.io
 
 # original Dockerfile borrowed from moul/weechat
@@ -13,6 +13,9 @@ RUN \
   apt-get install -y openssh-server weechat tmux ;\
   mkdir /var/run/sshd ;\
   useradd -m docker -s /bin/bash
+
+ENV TERM screen-256color
+ENV LANG C.UTF-8
 
 EXPOSE 22
 
